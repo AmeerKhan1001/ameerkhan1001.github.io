@@ -1,392 +1,314 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-<style>
-  * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
-
-  a {
-    color: #001C55;
-  }
-
-  body {
-    background-color: #ffffff;
-    font-family: "Open Sans", sans-serif;
-  }
-
-  .navbar {
-    padding-bottom: 10px;
-    overflow: hidden;
-    background-color: #ffffff;
-  }
-
-  .main-nav {
-    list-style-type: none;
-    display: none;
-  }
-
-  .nav-links,
-  .logo {
-    text-decoration: none;
-    color: rgb(0, 28, 85, 1.0);
-    font-family: "Open Sans", sans-serif;
-    text-align: center;
-    -webkit-font-smoothing: antialiased;
-    text-decoration: none;
-    font-size: 4.0vw;
-    font-weight: 500;
-    font-stretch: 130%;
-    line-height: normal;
-    display: inline-block;
-    padding: 38px
-  }
-
-  .nav-links:hover {
-    font-weight: 800;
-  }
-
-  .main-nav li {
-    text-align: center;
-    margin-top: -15px;
-  }
-
-  .logo {
-    display: inline-block;
-    padding: 17px 10px;
-    font-size: 22px;
-  }
-
-  .navbar-toggle {
-    position: absolute;
-    top: 30px;
-    right: 45px;
-    cursor: pointer;
-    color: #001C55;
-    font-size: 24px;
-  }
-
-  .active {
-    display: block;
-
-  }
-
-  #current {
-    display: block;
-    font-weight: 650;
-  }
-
-  .image {
-    width: 100%;
-    text-align: center;
-    margin-top: -50px;
-  }
-
-  .subimage p {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .bio {
-    width: 100%;
-    float: left;
-    padding-right: 40px;
-    padding-left: 40px;
-  }
-
-  @media screen and (min-width: 1500px) {
-    .nav-links {
-      font-size: 0.95vw;
-    }
-
-    .image {
-      width: 40%;
-      float: left;
-      margin-top: 0px;
-    }
-
-    .bio {
-      width: 60%;
-      float: left;
-      padding-right: 120px;
-      padding-left: 40px;
-    }
-
-    .subimage {
-      float: right;
-    }
-  }
-
-  @media screen and (min-width: 800px) {
-    .image {
-      width: 40%;
-      float: left;
-      margin-top: 0px;
-    }
-
-    .bio {
-      width: 60%;
-      float: left;
-      padding-right: 120px;
-      padding-left: 40px;
-    }
-
-    .subimage {
-      float: right;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      padding-bottom: 0;
-      height: 70px;
-      align-items: center;
-    }
-
-    .main-nav {
-      display: flex;
-      margin-right: 30px;
-      flex-direction: row;
-      justify-content: flex-end;
-    }
-
-    .main-nav li {
-      margin: 0;
-    }
-
-    .nav-links {
-      margin-left: 0px;
-      margin-right: 0px;
-      padding: 17px 18px;
-      font-size: 1.4vw;
-    }
-
-    .logo {
-      margin-top: 0;
-    }
-
-    .navbar-toggle {
-      display: none;
-    }
-
-    .nav-links:hover {
-      background-color: rgb(166, 225, 250);
-    }
-
-    .navbar {
-      position: fixed;
-      right: 10px;
-      width: 95%;
-    }
-  }
-
-  h1 {
-    color: #001C55;
-  }
-
-  .tooltip {
-    position: relative;
-    display: inline-block;
-  }
-
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 85px;
-    background-color: #333333;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    font-family: "Open Sans", sans-serif;
-    font-size: 0.8em;
-
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 2;
-    bottom: 100%;
-    left: 100%;
-    margin-left: -64px;
-    margin-bottom: 3px;
-  }
-
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-  }
-
-  .modal {
-    position: fixed;
-    /* Stay in place */
-    z-index: 3;
-    /* Sit on top */
-    padding-top: 20px;
-    /* Location of the box */
-    padding-bottom: 20px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-  }
-
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    width: 80%;
-  }
-
-  .close {
-    color: #a6b8dd;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: -15px;
-  }
-
-  .close:hover,
-  .close:focus {
-    color: #001C55;
-    text-decoration: none;
-    cursor: pointer;
-  }
-</style>
+<html lang="en">
 <head>
-  <title>Ameer Khan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Your description">
+    <meta name="author" content="Your name">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
+	<meta property="og:site_name" content="" /> <!-- website name -->
+	<meta property="og:site" content="" /> <!-- website link -->
+	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+	<meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+
+    <!-- Webpage Title -->
+    <title>Ameer's Portfolio</title>
+    
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	
+	<!-- Favicon  -->
+    <link rel="icon" href="images/favicon.png">
 </head>
-<body>
-  <div style="z-index: 1; position:fixed; background-color: #ffffff; width:100%; height:85px;">
-    <div style="margin-top: 10px; margin-left: 30px; margin-right: 25px;">
-      <nav class="navbar">
-        <span class="navbar-toggle" id="js-navbar-toggle">
-          <i class="fa fa-bars"></i>
-        </span>
-        <a href="#" class="logo">Ameer Khan</a>
-        <ul class="main-nav" id="js-menu">
-          <li>
-            <a href="#" class="nav-links" id="current">Home</a>
-          </li>
-          <li>
-            <a href="#Education" class="nav-links">Education</a>
-          </li>
-          <li>
-            <a href="#Skills" class="nav-links">Skills</a>
-          </li>
-          <li>
-            <a href="#Projects" class="nav-links">Projects</a>
-          </li>
-          <li>
-            <a href="#Experience" class="nav-links">Experience</a>
-          </li>
-          <li>
-            <a href="" class="nav-links" style="background-color: rgb(166,225,250,0.5);"><i class="fa fa-download"></i>&nbsp;&nbsp;Resume</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div style="text-align:center">
-    <div style="display:inline-block; padding-top: 100px; margin-right: 40px; margin-left: 40px;">
-      <div class="image" style="display:inline-block;">
-        <div class="subimage">
-          <img src="./images/Me_final.png" alt="Myself" width="300px"
-            style="margin-left: auto; margin-right: auto; display: block; border-radius: 35%;">
-        </div>
-      </div>
-      <div class="bio"
-        style="display:inline-block; margin-top:120px; font-size:1.2em;color:#001C55; max-width:900px; text-align: left;">
-        <h1 style="font-size:2.3em; text-align: center; min-width: 330px">Ameer Khan</h1><br>
-        <p style="margin-bottom:12px; min-width: 450px; border: 5px black solid; padding: 10px;">I'm a Software Engineer
-          and a Philomath.</p>
-        <p style="margin-bottom:12px; min-width: 450px; border: 5px black solid; padding: 10px;">Passionate about
-          science, technology, business and religion.</p>
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
-  <div id="Contact"></div>
-  <div id="Education"></div>
-  <div id="Skills"></div>
-  <div id="Projects"></div>
-  <div id="Experience"></div>
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+        <div class="container">
+            
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <a class="navbar-brand logo-text page-scroll" href="index.html">Ameer</a>
+
+            <!-- Image Logo -->
+            <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a>  -->
+
+            <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#about">About <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <span class="nav-item social-icons ml-auto">
+                    <a href="https://www.linkedin.com/in/ameer-khan-m/">
+                        <i class="fab fa-linkedin-square" style="color:blue"></i>
+                    </a>
+                </span>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+
+
+    <!-- Header -->
+    <header class="header">
+        <div class="area-1">
+            <div class="text-container">
+                <h1 class="h1-large">Hi I am Ameer Khan and I <span id="js-rotating">code, teach, curate</span></h1>
+                <p class="p-large">Below you will find a few details about my life, skills, and my work in programming, teaching and curation.</p>
+                <a class="page-scroll" href="#about"><i class="fas fa-chevron-down"></i></a>
+            </div> <!-- end of text-container -->
+        </div><!-- end of area-1 on same line and no space between comments to eliminate margin white space --><div class="area-2"></div> <!-- end of area-2 -->
+    </header> <!-- end of header -->
+    <!-- end of header -->
+
+
+    <!-- About -->
+    <div id="about" class="basic-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="h2-heading">Few words about me</h2>
+                    <p class="p-large">Problem solver, with a knack for learning new technology, on a quest to contribute to humanity on a global scale.</p>
+                </div> <!-- end of col -->
+                <div class="image-container growth-seeker">
+                    <span><img src="images/growth-seeker.png" alt="Ameer Khan's Personality"/></span>
+                </div>
+            </div> <!-- end of row -->
+            <div id="achievementBoard" class="row">
+                <div class="col-lg-12">
+                    <div class="image-container">
+                        <a href="https://10fastfingers.com/typing-test/english"><img src="http://img.10fastfingers.com/badge/typing-test_1_CC.png" alt="Typing Test" /></a>
+                        <a href="https://app.daily.dev/AmeerKhan98"><img src="https://api.daily.dev/devcards/9d96620b38414dde8e6f8743a66559f9.png?r=7al" width="400" alt="Ameer Khan's Dev Card"/></a>
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of about -->
+
+
+    <!-- Services -->
+    <div id="services" class="basic-2 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="h2-heading">Offered services</h2>
+                    <p class="p-heading">I would love to use my skills to help your project. My expertise spans from full stack development and tech writing to coaching people.</p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="list-unstyled first">
+                        <li class="media">
+                            <i class="fas fa-rocket"></i>
+                            <div class="media-body">
+                                <h5>Software Development</h5>
+                                <p>Based on my experience working with tech companies I can create web and mobile applications for your product</p>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-font"></i>
+                            <div class="media-body">
+                                <h5>Copywriting services</h5>
+                                <p>I can create marketing copy, sales literature even blog posts so don't hesitate to get in touch for a quote</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+                    <ul class="list-unstyled second">
+                        <li class="media">
+                            <i class="fas fa-keyboard"></i>
+                            <div class="media-body">
+                                <h5>Tech writing services</h5>
+                                <p>You've built a software product and now you need to create your documentation? I am here to help with that</p>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-photo-video"></i>
+                            <div class="media-body">
+                                <h5>Teaching videos</h5>
+                                <p>The easiest way to help someone learn how to use your product is with video tutorials. I can create them for you</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-2 -->
+    <!-- end of services -->
+
+
+    <!-- Invitation -->
+    <div class="basic-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>Contact me today if you have a software, teaching or speaking project. I am available anytime at moderate costs.</h4>
+                    <a class="btn-solid-lg page-scroll" href="#contact">Contact Me</a>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-3 -->
+    <!-- end of invitation -->
+
+
+    <!-- Projects -->
+    <div id="projects" class="cards-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="h2-heading">My Work</h2>
+                    <p class="p-heading">Here are some of the projects I am most proud of. I am grateful for working with some amazing people from which I had the pleasure to learn a lot.</p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="https://asecularknowledgejournal.bloggi.co/">
+                                <img class="img-fluid" src="images/project-1.jpg" alt="alternative">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <strong>asecularknowledgejournal.bloggi.co</strong> - A Secular Knowledge Journal
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="https://anislamicknowledgejournal.bloggi.co/">
+                                <img class="img-fluid" src="images/project-3.jpg" alt="alternative">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <strong>anislamicknowledgejournal.bloggi.co</strong> - An Islamic Knowledge Journal
+                        </div>
+                    </div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of cards-1 -->
+    <!-- end of projects -->
+
+
+    <!-- Customers -->
+    <div class="basic-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Worked with the best</p>
+                    <div class="image-container">
+                        <img class="img-fluid" src="images/customer-logo-1.png" alt="alternative">
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-4 -->
+    <!-- end of customers -->    
+
+
+    <!-- Contact -->
+    <div id="contact" class="form-1 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <h2>Contact details</h2>
+                        <p class="sub-heading">It's easy to get in touch with me and inquire anything about my <a class="orange no-line" href="#services">services</a></p>
+
+                        <!-- Contact Details -->
+                        <ul class="list-unstyled li-space-lg">
+                            <li>+91 730 527 547 3</li>
+                            <li><a class="orange no-line" href="mailto:contactameerkhan@gmail.com">contactameerkhan@gmail.com</a></li>
+                        </ul>
+                        <!-- end of contact details -->
+
+                        <div class="social-icons">
+                            <span class="fa-stack">
+                                <a href="https://www.linkedin.com/in/ameer-khan-m/">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-linkedin-square fa-stack-1x"></i>
+                                </a>
+                            </span>
+                        </div> <!-- end of social icons -->
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+                    
+                    <!-- Contact Form -->
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="cname" required>
+                            <label class="label-control" for="cname">Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control-input" id="cemail" required>
+                            <label class="label-control" for="cemail">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control-textarea" id="cmessage" required></textarea>
+                            <label class="label-control" for="cmessage">Project details</label>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control-submit-button">Submit</button>
+                        </div>
+                    </form>
+                    <!-- end of contact form -->
+
+                </div> <!-- end of col-lg-6 -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of form-1 -->  
+    <!-- end of contact -->
+
+
+    <!-- Copyright -->
+    <div class="copyright bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright © <a href="#your-link">Ameer Khan</a></p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright --> 
+    <!-- end of copyright -->
+    
+    	
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="js/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
+    <script src="js/scripts.js"></script> <!-- Custom scripts -->
 </body>
-<script>
-  let mainNav = document.getElementById("js-menu");
-  let navBarToggle = document.getElementById("js-navbar-toggle");
-
-  navBarToggle.addEventListener("click", function () {
-    mainNav.classList.toggle("active");
-  });
-</script>
-<script>
-  function shadow(id) {
-    let div = document.getElementById(id);
-    div.style.boxShadow = "0 4px 9px 0 rgba(0, 0, 0, 0.2)";
-  }
-
-  function unshadow(id) {
-    let div = document.getElementById(id);
-    div.style.boxShadow = "";
-  }
-
-  function expand(id) {
-    let div = document.getElementById("caret" + id);
-    let elements = document.getElementsByClassName("course" + id);
-    if (div.innerHTML === '<i class="fa fa-caret-down" aria-hidden="true"></i>') {
-      div.innerHTML = '<i class="fa fa-caret-up" aria-hidden="true"></i>';
-      for (var i = 0; i < elements.length; i++) {
-        elements[i].style.display = "inline-block";
-      }
-    }
-    else {
-      div.innerHTML = '<i class="fa fa-caret-down" aria-hidden="true"></i>';
-      for (var i = 0; i < elements.length; i++) {
-        elements[i].style.display = "none";
-      }
-    }
-  }
-</script>
-<script>
-  let list = document.getElementsByClassName("modal")
-  for (let i = 0; i < list.length; i++) {
-    list[i].style.display = "none";
-  }
-  function modal(id) {
-    console.log(id);
-    var modal = document.getElementById(id);
-    console.log(modal);
-    // Get the button that opens the modal
-    var btn = document.getElementById(id + "Button");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementById(id + "Close");
-    console.log(span);
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = "none";
-    }
-
-    // When the user clicks the button, open the modal 
-    modal.style.display = "block";
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-  }
-</script>
 </html>
