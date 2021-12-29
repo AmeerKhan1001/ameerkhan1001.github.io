@@ -67,14 +67,24 @@
     <!-- end of navigation -->
 
     <!-- Logs -->
-    <div class="container" style="padding-top: 60px;">
-        <h3>Log</h3><br>
+    <div id="logs" class="container" style="padding-top: 60px;">
+      <h3 id="logs-heading" style="cursor: default;">Log</h3><br>
+      <div id="logs-body" style="display: none;">
+        <!-- Wow! You've found my personal journal entries! -->
         <p><b>Tue Dec 28 2021 01:00:00 : </b>Decided to pursure the ML course by Andrew NG. Intending to build a full stack typing speed predictor using java stack and ML.</p>
         <p><b>Tue Dec 28 2021 22:18:44 : </b>Stressful day at work. Noticed that I get stressed if there is no clear instructions to do on a task and pressure is included. <br> 
           Watched ML lecture on time and successfully logged food entries. Good going me!!</p>
         <p><b>Wed Dec 29 2021 22:33:06 : </b> Felt sudden change in brain chemistry. Easy task felt more harder. Spoke to my manager about my bipolar past and he understood so clearly - that the pressure from a ticket is causing my bipolar to aggregate. Had difficulty in getting out my bed and back to work in the afternoon. I prayed Istikhara two times for the same decision with great difficulty. But Alhamdullilah, I'm so happy that I told my manager about my bipolar. And he told me his problems at work. I'm gonna do my best to solve the problems at work for my team. For excellence. For Allah!!</p>
+      </div>
     </div>
     <!-- end of logs -->
 
+    <script>
+      let logsHeading = document.getElementById("logs-heading");
+      let logsClickCount = 0;
+      logsHeading.addEventListener("click", function() {
+        if(logsClickCount++ > 3) document.getElementById("logs-body").style.display = "block"; 
+      });
+    </script>
   </body>
 </html>
